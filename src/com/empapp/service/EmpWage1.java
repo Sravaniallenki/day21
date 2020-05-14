@@ -7,6 +7,8 @@ public class EmpWage1 implements EmpWage
    private static final int PARTTIMEHOURS = 4;
    int monthlyWage = 0;
    int temp = 0;
+   int days = 1;
+   int hours = 0;
   
    
    public int dailyFullWage()
@@ -25,9 +27,10 @@ public class EmpWage1 implements EmpWage
 
    Employee emp1 = new Employee();
    
-     public void empCheck()
+   public void empCheck()
    {
-        for(int i=0; i<20; i++)
+
+         while(days<21 && hours<100)
          {
                switch(emp1.isPresent())
                 {
@@ -35,19 +38,25 @@ public class EmpWage1 implements EmpWage
                             System.out.println("Employee for Company1 is Present and Full Time");
                             System.out.println("Daily Employee Wage is :" + dailyFullWage());
                             temp = dailyFullWage();
+                            hours+=FULLTIMEHOURS;
                             break;
                    case  2:
                             System.out.println("Employee for Company1 is Present and part Time");
                             System.out.println("Daily Employee Wage for Company1 is :" + dailyPartWage());
                             temp = dailyPartWage();
+                            hours+=PARTTIMEHOURS;
                             break;
                    case  0:
                             System.out.println("Employee for Compamy1 is Absent");
-                            temp = 0 ;
+                            temp = 0;
+                            hours+=0;
                             break;
                 }
                 monthlyWage+=temp;
+                System.out.println("Total hours :" + hours);
+                System.out.println("Total Days  :" + days);
                 System.out.println("Monthly Wage Employee of Company1 is :" + monthlyWage);
+                days++;
 
         }
     }
