@@ -1,18 +1,14 @@
 package com.empapp.test;
-import com.empapp.model.*;
-import com.empapp.service.EmployeeManage;
+import com.empapp.model.Employee;
+import com.empapp.service.*;
 public class EmployeeTest
 {
     public static void main(String[] args)
     {
        System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION");
-       
-       EmployeeManage employeemanage = new EmployeeManage();
-       boolean status= employeemanage.EmployeeStatus();
-       if(status==true){
-               System.out.println("Present");
-       }else{
-               System.out.println("Absent");
-       }
+       EmpWage obj1 = new EmpWage1();
+       EmpWage obj2 = new EmpWage2();
+       obj1.empCheck();
+       obj2.empCheck();
     }
 }
