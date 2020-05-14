@@ -4,4 +4,6 @@ public interface EmpWage
 {
    public void empCheck();
    public int dailyFullWage();
+   public int dailyPartWage();
+
 }
