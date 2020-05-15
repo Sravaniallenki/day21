@@ -14,7 +14,7 @@ public class Employee
    }
    public int isPresent()
    {
-     int temp = (int)Math.floor(Math.random()*100)%3;
-     return temp;
+     int isPresent = (int)Math.floor(Math.random()*100)%3;
+     return isPresent;
    }
 }
