@@ -2,12 +2,18 @@ package com.empapp.service;
 import com.empapp.model.Employee;
 public class CompEmpWage implements EmpWage
 {
+         private String COMPANY;
          private int WAGEPERHOUR;
          private int FULLTIMEHOURS;
          private int PARTTIMEHOURS;
-         int monthlyWage = 0;
-         int temp = 0;
-         int days=1,hours=0;
+         private int NUMOFWORKINGDAYS;
+         private int MAXWORKINGHOURS;
+         private int TOTALEMPWAGE;
+         
+         public void setCompany(String COMPANY)
+         {
+                 this.COMPANY = COMPANY;
+         }
 
          public void setWagePerHour(int WAGEPERHOUR)
          {
@@ -21,7 +27,21 @@ public class CompEmpWage implements EmpWage
          {
                  this.PARTTIMEHOURS=PARTTIMEHOURS;
          }
-         
+          public void setNumOfWorkingDays(int NUMOFWORKINGDAYS)
+         {
+                 this.NUMOFWORKINGDAYS=NUMOFWORKINGDAYS;
+         }
+         public void setMaxWorkingHours(int  MAXWORKINGHOURS)
+         {
+                 this.MAXWORKINGHOURS=MAXWORKINGHOURS;
+         }
+         public int isPresent()
+         {
+             int status = (int)Math.floor(Math.random()*100)%3;
+             return status;
+         }
+
+
          public int dailyFullWage()
          {
              int dailyEmpWage =0;
@@ -37,12 +57,16 @@ public class CompEmpWage implements EmpWage
               return dailyEmpWage;
          }
          Employee emp = new Employee();
-         
-         public void empCheck()
+
+         public void computeEmpWage()
          {
-               while(days<21 && hours<100)
+               int temp =0;
+               int days=1;
+               int hours=0;         
+         
+               while(days<NUMOFWORKINGDAYS && hours<=MAXWORKINGHOURS)
                {
-                      switch(emp.isPresent())
+                      switch(isPresent())
                       {
                              case 1:
                                    System.out.println("Employee is Present and Full Time");
@@ -62,10 +86,10 @@ public class CompEmpWage implements EmpWage
                                    hours+=0;
                                    break;
                     }
-                    monthlyWage+=temp;
+                    TOTALEMPWAGE+=temp;
                     System.out.println("Total Hours :" + hours);
                     System.out.println("Total Days :" + days);
-                    System.out.println("Monthly Wage for Employee is :" + monthlyWage);
+                    System.out.println("Total Wage for Employee is of Company:" + COMPANY +" is " + TOTALEMPWAGE );
                     days++;
                  }
          }

@@ -8,7 +8,7 @@ public class EmployeeTest
        System.out.println("WELCOME TO EMPLOYEE WAGE COMPUTATION");
        EmpWage obj1 = new EmpWage1();
        EmpWage obj2 = new EmpWage2();
-       obj1.empCheck();
-       obj2.empCheck();
+       obj1.computeEmpWage();
+       obj2.computeEmpWage();
     }
 }
