@@ -12,9 +12,5 @@ public class Employee
    {
       return this.PARTTIME;
    }
-   public int isPresent()
-   {
-     int isPresent = (int)Math.floor(Math.random()*100)%3;
-     return isPresent;
-   }
+
 }
