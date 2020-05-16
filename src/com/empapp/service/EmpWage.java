@@ -1,9 +1,11 @@
-package com.empapp.service;
-import com.empapp.model.Employee;
+package comm.empapp.service;
+import com.empapp.model.*;
 public interface EmpWage
 {
-   public void computeEmpWage();
-   public int dailyFullWage();
-   public int dailyPartWage();
 
+    public void EmployeeWageBuilder();
+    public void addCompanyEmpWage(String company, int wagePerHours,int fullTimeHours,int partTimeHours,int numOfWorkingDays,int maxWorkingHours);
+    public void computeEmpWage();
+    public int dailyFullWage(CompanyEmpWage emp);
+    public int dailyPartWage(CompanyEmpWage emp);
 }
