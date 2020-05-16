@@ -1,5 +1,6 @@
 package comm.empapp.service;
 import com.empapp.model.*;
+import java.util.*;
 public interface EmpWage
 {
 

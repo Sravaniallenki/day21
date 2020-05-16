@@ -1,16 +1,19 @@
 package com.empapp.service;
 import com.empapp.model.*;
+import java.util.*;
 public class EmployeeWageBuilder implements EmpWage
 {
    
        private int numOfCompanies = 0;
-       private CompanyEmpWage[] companyArray;
+       private LinkedList<CompanyEmpWage> companyList;
+       private Map<String,CompanyEmpWage> companyMap;
        
-       public  EmployeeWageBuilder()
+       public void EmployeeWageBuilder()
 
        {
 
-            companyArray = new CompanyEmpWage[5];
+            companyList = new LinkedList<>();
+            companyMap = new HashMap<>();
 
        }
 
@@ -18,20 +21,22 @@ public class EmployeeWageBuilder implements EmpWage
 
        {
 
-           companyArray[numOfCompanies] = new CompanyEmpWage(company,wagePerHours,fullTimeHours,partTimeHours,numOfWorkingDays,maxWorkingHours);
-           numOfCompanies++;
+           CompanyEmpWage emp = new CompanyEmpWage(company,wagePerHours,fullTimeHours,partTimeHours,numOfWorkingDays,maxWorkingHours);
+           companyList.add(emp);
+           companyMap.put(company,emp);
 
        }
+    
 
        
        public void computeEmpWage()
        
        {
 
-          for(int i=0; i<numOfCompanies; i++)
+          for(int i=0; i< companyList.size(); i++)
           {
-              companyArray[i].setTotalEmpWage(this.computeEmpWage(companyArray[i]));
-              System.out.println(companyArray[i]);
+              companyList.get(i).setTotalEmpWage(this.computeEmpWage(companyList.get(i)));
+              System.out.println(companyList.get(i));
           }
        }
 
