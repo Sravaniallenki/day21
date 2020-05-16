@@ -64,6 +64,11 @@ public class EmployeeWageBuilder implements EmpWage
              return dailyEmpWage;
         }
 
+        public int getTotalWage(String company)
+        {
+            return companyMap.get(company).totalEmpWage;
+        }
+
         public int computeEmpWage(CompanyEmpWage comp)
           {
                int temp = 0;
