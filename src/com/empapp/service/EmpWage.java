@@ -9,4 +9,5 @@ public interface EmpWage
     public void computeEmpWage();
     public int dailyFullWage(CompanyEmpWage emp);
     public int dailyPartWage(CompanyEmpWage emp);
+    public int getTotalWage(String company);
 }
